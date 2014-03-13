@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
 
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
+    <script type='text/javascript' src='js/jquery.reloadimage.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/sample.css">
+
+
     <title>Reload Image Js - SAMPLE</title>
 
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="css/main-grid-old-ie.css">
     <![endif]-->
@@ -20,6 +25,31 @@
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="css/layouts/blog.css">
     <!--<![endif]-->
+
+    <script language="javascript">
+    <!--
+        var reloadImageMaxRetry = 8;
+        var reloadImageCnt = 0;
+        var reloadInterval;
+        var retrySecond = 3;
+        $(this).reloadimage();
+
+
+
+        var origFilename='';
+        $(function(){
+            origFilename = ($('.sample_test').attr('src'));
+            setTimeout( function() {
+                $('.sample_test').attr('src', origFilename);
+            }, 5000);
+            $('.sample_test').attr('src', 'notfound.jpg');
+        });
+
+        function retreatImage(){
+            alert('unko');
+        }
+    -->
+    </script>
 </head>
 <body>
 
@@ -27,14 +57,14 @@
     <div class="sidebar pure-u-1 pure-u-med-1-5">
         <div class="header">
             <hgroup>
-                <h1 class="brand-title">Sample</h1>
+                <h1 class="brand-title">Sample DEMO</h1>
                 <h2 class="brand-tagline">Automatic Image Reloading</h2>
             </hgroup>
 
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a class="pure-button" href="http://yuilibrary.com">start over</a>
+                        <a class="pure-button" href=".">start over</a>
                     </li>
                 </ul>
             </nav>
@@ -61,11 +91,15 @@
 
                     <div class="post-description">
                         <p>
-                        <img src='img/pics/002.jpg'>
-                        <img src='img/pics/003.jpg'>
-                        <img src='img/pics/001.jpg'>
-                        <img src='img/pics/004.jpg'>
-                        <img src='img/pics/005.jpg'>
+                        <div class='hoge imageFrame'>
+                        <img class='reloadable' src='img/pics/001.jpg'>
+                        </div>
+                        <div class='hoge imageFrame'>
+                        <img class='reloadable sample_test' src='img/pics/002.jpg'>
+                        </div>
+                        <div class='hoge imageFrame'>
+                        <img class='reloadable' src='img/pics/003.jpg'>
+                        </div>
                         </p>
                     </div>
                 </section>
