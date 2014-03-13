@@ -28,7 +28,7 @@ function reloadImage(){
         var src = $(this).find('.reloadable').attr('src');
         $(this).find('.reloadable').attr('src', src + "?" + Math.round(new Date().getTime() / 1000));
     });
-    if(++reloadImageCnt >= reloadImageMaxNum){
+    if(++reloadImageCnt >= reloadImageMaxRetry){
         clearInterval(reloadInterval);
     }
 }
