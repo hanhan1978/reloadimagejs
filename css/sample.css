@@ -1,5 +1,5 @@
 .loading {
-    background-image: url("img/loading.gif");
+    background-image: url("../img/loading.gif");
     background-position: center;
     background-repeat: no-repeat;
     -moz-background-size:auto 20%;
